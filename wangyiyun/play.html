@@ -19,7 +19,10 @@
 <div class="body">
     <div class="ul-left">
         <ul>
-            <li v-for="item in musicList"><a @click="playMusic(item.id)"  v-cloak >{{item.name}}</a></li>
+            <li v-for="item in musicList">
+                <b></b>
+                <a @click="playMusic(item.id)"  v-cloak >{{item.name}}</a>
+            </li>
         </ul>
     </div>
     <div class="cd">
