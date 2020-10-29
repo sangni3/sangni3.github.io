@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>网抑云</title>
+    <link rel="shortcut icon" href="img/icon">
     <link rel="stylesheet" href="play.css">
 </head>
 <body>
@@ -20,8 +21,8 @@
     <div class="ul-left">
         <ul>
             <li v-for="item in musicList">
-                <b @click="playMusic(item.id)" v-cloak></b>
-                <a @click="playMusic(item.id)"  v-cloak >{{item.name}}</a>
+                <b @click="playMusic(item.id)"  v-cloak></b>
+                <a @click="playMusic(item.id)"  v-cloak>{{item.name}}</a>
             </li>
         </ul>
     </div>
