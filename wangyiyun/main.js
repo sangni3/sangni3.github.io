@@ -8,6 +8,10 @@ var app =new Vue({
         name:'',
         comment:[],
     },
+    mounted:function(){
+        this.query='华晨宇'
+        this.searchMusic()
+    },
     methods:{
         searchMusic(){
             var that=this;
@@ -35,7 +39,6 @@ var app =new Vue({
             axios.get("https://autumnfish.cn/comment/hot?type=0&id=" + musicId)
                 .then(function(respones){
                     that.comment = respones.data.hotComments
-
                 },function(err){
                     console.log(err)
                 })
