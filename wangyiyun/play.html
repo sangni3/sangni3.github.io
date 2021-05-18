@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网抑云</title>
+    <link rel="shortcut icon" href="img/icon.png">
+    <link rel="stylesheet" href="play.css">
+</head>
+<body>
+<div id="main" style="height:695px;">
+<div class="header">
+    <div class="hid">
+        <span>网抑云音乐</span>
+        <div id="serch">
+            <input id='put' type="text" v-model="query" @keyup.enter="searchMusic" />
+            <a @click="searchMusic" style="color: white">搜索</a>
+        </div>
+    </div>
+</div>
+<div class="body">
+    <div class="ul-left">
+        <ul>
+            <li v-for="item in musicList">
+                <b @click="playMusic(item.id)"  v-cloak></b>
+                <a @click="playMusic(item.id)"  v-cloak>{{item.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="cd">
+        <div id="icon2">
+            <img :src="musicCover" alt="">
+        </div>
+        <img src="img/cd1.png" id="icon1" alt="">
+        <div id="musicName"  v-cloak >
+            正在播放：{{name}}
+        </div>
+    </div>
+    <div class="commit">
+    <ul>
+        <li v-for="item in comment">
+        <div class="username">
+            <img id='tp' :src="item.user.avatarUrl" alt=""/>
+            <span id="myname"  v-cloak >{{item.user.nickname}}</span>
+        </div>
+            <div class="text"  v-cloak >{{item.content}}</div>
+        </li>
+    </ul>
+    </div>
+
+</div>
+    <div id="article_audio">
+        <audio id="audio" :src="musicUrl"  controls="controls" loop="loop" preload="auto" autoplay="autoplay"></audio>
+        <div class="audio_box">
+            <img  width="70px" height="70px" style="margin-left: 5px" :src="musicCover" alt="">
+<!--            <div><a style="height:50px;width:50px;border:2px solid #000;border-radius:50%;" id="next_btn" @click="next"></a></div>-->
+            <div><a style="height:50px;width:50px;border:2px solid #000;border-radius:50%;" id="play_btn" class="play_btn"></a></div>
+            <div id="pgs" class="pgs">
+                <div id="progress" class="pgs-play"></div>
+                <div id="circle" class="circle"></div>
+            </div>
+            <div class="time_p clearfix">
+                <span id="playedTime" class="playedTime">00:00</span><span>/</span>
+                <span id="totalTime" class="totalTime">00:00</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="main.js"></script>
+<script src="tp.js"></script>
+</body>
+</html>
