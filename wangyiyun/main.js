@@ -16,7 +16,7 @@ var app =new Vue({
     methods:{
         searchMusic(){
             var that=this;
-            axios.get("https://autumnfish.cn/search?keywords=" + this.query)
+            axios.get("https://netease-cloud-music-api-sangni3.vercel.app/search?keywords=" + this.query)
                 .then(function (response) {
                    that.musicList=response.data.result.songs
 
@@ -24,21 +24,21 @@ var app =new Vue({
         },
         playMusic:function(musicId){
             var that = this;
-            // https://autumnfish.cn/song/url?id=536570450
-            axios.get("https://autumnfish.cn/song/url?id=" + musicId)
+            // https://netease-cloud-music-api-sangni3.vercel.app/song/url?id=536570450
+            axios.get("https://netease-cloud-music-api-sangni3.vercel.app/song/url?id=" + musicId)
                 .then(function(respones){
                     that.musicUrl = respones.data.data[0].url
                 },function(err){
                     console.log(err)
                 })
-            axios.get("https://autumnfish.cn/song/detail?ids=" + musicId)
+            axios.get("https://netease-cloud-music-api-sangni3.vercel.app/song/detail?ids=" + musicId)
                 .then(function(respones){
                     that.musicCover = respones.data.songs[0].al.picUrl
                     that.name = respones.data.songs[0].name
                 },function(err){
                     console.log(err)
                 })
-            axios.get("https://autumnfish.cn/comment/hot?type=0&id=" + musicId)
+            axios.get("https://netease-cloud-music-api-sangni3.vercel.app/comment/hot?type=0&id=" + musicId)
                 .then(function(respones){
                     that.comment = respones.data.hotComments
                 },function(err){
